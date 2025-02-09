@@ -1,0 +1,447 @@
+
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up-Recycle it!</title>
+    <style>
+        body {
+            background-color: #008227;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            img {
+                margin-bottom: 1em;
+            }
+            .quote {
+                font-size: 1em;
+            }
+        }
+
+        /* Custom Scroll Bar Styles */
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #ecf5ec;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #78ab78;
+            border-radius: 3px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background-color: #2b2b2b;
+        }
+
+        /* Hide scrollbar when not interacting */
+        body::-webkit-scrollbar {
+            width: 6px;
+            background-color: #ecf5ec;
+        }
+
+        ::selection {
+            background-color: #045100;
+        }
+
+        nav {
+            height: 4.5rem;
+            width: 100vw;
+            background-color: #4a8c4a;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: fixed;
+            z-index: 10;
+            top: 0; /* Adjust the top property to move the navigation bar up */
+        }
+        .logo {
+            padding: 1vh 1vw;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo img {
+            height: 5rem;
+            width: 5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            width: 88vw;
+            padding: 0 0.7vw;
+            justify-content: space-evenly;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            margin: 0 0.7vw;
+            color: #2b2b2b;
+            position: relative; /* Position relative for pseudo-element */
+        }
+
+        .nav-links li a:hover {
+            color: #78ab78;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+
+        .login-button {
+            background-color: #78ab78;
+            border: 1.5px solid #78ab78;
+            border-radius: 2em;
+            padding: 0.6rem 0.8rem;
+            margin-left: 2vw;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #2b2b2b;
+        }
+
+        .login-button:hover {
+            color: #ecf5ec;
+            background-color: #2b2b2b;
+            border: 1.5px solid #2b2b2b;
+            transition: all ease-in-out 350ms;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background: #2b2b2b;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        @media screen and (max-width: 800px) {
+            nav {
+                position: fixed;
+                z-index: 3;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                cursor: pointer;
+                right: 5%;
+                top: 50%;
+                transform: translate(-5%, -50%);
+                z-index: 2;
+                transition: all 0.7s ease;
+            }
+
+            .nav-links {
+                position: fixed;
+                background: #4a8c4a;
+                height: 100vh;
+                width: 100%;
+                flex-direction: column;
+                clip-path: circle(50px at 90% -20%);
+                -webkit-clip-path: circle(50px at 90% -10%);
+                transition: all 1s ease-out;
+                pointer-events: none;
+            }
+
+            .nav-links.open {
+                clip-path: circle(1000px at 90% -10%);
+                -webkit-clip-path: circle(1000px at 90% -10%);
+                pointer-events: all;
+            }
+
+            .nav-links li {
+                opacity: 0;
+            }
+
+            .nav-links li:nth-child(1) {
+                transition: all 0.5s ease 0.2s;
+            }
+
+            .nav-links li:nth-child(2) {
+                transition: all 0.5s ease 0.4s;
+            }
+
+            .nav-links li:nth-child(3) {
+                transition: all 0.5s ease 0.6s;
+            }
+
+            .nav-links li:nth-child(4) {
+                transition: all 0.5s ease 0.7s;
+            }
+
+            .nav-links li:nth-child(5) {
+                transition: all 0.5s ease 0.8s;
+            }
+
+            .nav-links li:nth-child(6) {
+                transition: all 0.5s ease 0.9s;
+                margin: 0;
+            }
+
+            .nav-links li:nth-child(7) {
+                transition: all 0.5s ease 1s;
+                margin: 0;
+            }
+
+            li.fade {
+                opacity: 1;
+            }
+        }
+
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .toggle .line2 {
+            transition: all 0.7s ease;
+            width: 0;
+        }
+
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .dropdown .dropbtn {
+      transition: color 0.3s;
+    }
+
+    .dropdown:hover .dropbtn {
+      color: #78ab78;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Updated styles for the dropdown options */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #78ab78;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 4px;
+      opacity: 0;
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    .dropdown-content a {
+      color: #2b2b2b;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2b2b2b;
+      color: #78ab78;
+    }
+
+    .dropdown-arrow {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      border-bottom-color: #2b2b2b;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-arrow {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+        .signup-card {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center
+        }
+
+        .signup-card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: none;
+            background-color: #37474F;
+            color: #ffffff;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .signup-card button.signup-button {
+            display: inline-block;
+            background-color: #9eff57;
+            color: #1F2A2E;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .signup-card button.signup-button:hover {
+            background-color: #7ecc42;
+        }
+
+        .signup-card a {
+            color: #9eff57;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <span style="color: #000; font-size: 26px; font-weight: bold; letter-spacing: 1px; margin-left: 20px;">Recycle it!</span>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div> 
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="https://sweihanschool.my.canva.site/recycleit#project-overview">Home</a></li>
+            <li><a href="https://ecomate.zapier.app">Chat with AI</a></li>
+           
+    </nav>
+    </div> 
+<!-- Sign Up Card -->
+<div class="signup-card" id="signUpCard">
+    <h2>Sign Up</h2>
+    <form onsubmit="return signUp()">
+        <input type="text" id="nameInput" placeholder="Enter your name" required>
+        <input type="email" id="emailInput" placeholder="Enter your email" required>
+        <input type="password" id="passwordInput" placeholder="Create a password" required>
+        <button type="submit" class="signup-button">Sign Up</button>
+    </form>
+ 
+</div>
+
+<script>
+    function signUp() {
+        var name = document.getElementById("nameInput").value;
+        var email = document.getElementById("emailInput").value;
+        var password = document.getElementById("passwordInput").value;
+
+        // Check if email or name is already used
+        if (isEmailUsed(email) || isNameUsed(name)) {
+            alert("Email or name is already in use. Please choose a different one.");
+            return false; // Prevent form submission
+        }
+
+        // Check if any of the fields are empty
+        if (!name || !email || !password) {
+            alert("Please fill in all fields before continuing.");
+            return false; // Prevent form submission
+        }
+
+        // Validate email using a regular expression
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        // Validate password strength (minimum 8 characters, at least one uppercase letter, one lowercase letter, and one digit)
+        var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        if (!passwordRegex.test(password)) {
+            alert("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit.");
+            return false;
+        }
+
+        // Save user information to localStorage
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+        users.push({ name: name, email: email, password: password });
+        localStorage.setItem("users", JSON.stringify(users));
+
+        // Redirect to the welcome page with the user's name as a query parameter
+        window.location.href = 'welcome.html?name=' + encodeURIComponent(name);
+
+        return false; // Prevent form submission
+    }
+
+    function isEmailUsed(email) {
+        // Check if the email is already used (you can replace this with your logic)
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+        return users.some(user => user.email === email);
+    }
+
+    function isNameUsed(name) {
+        // Check if the name is already used (you can replace this with your logic)
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+        return users.some(user => user.name === name);
+    }
+    // Your other JavaScript code here
+
+    const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const links = document.querySelectorAll(".nav-links li");
+
+
+  hamburger.addEventListener('click', () => {
+    // Animate Links
+    navLinks.classList.toggle("open");
+    links.forEach(link => {
+      link.classList.toggle("fade");
+    });
+
+    // Hamburger Animation
+    hamburger.classList.toggle("toggle");
+  });
+</script>
+
+</body>
+</html>
+
