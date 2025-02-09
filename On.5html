@@ -347,56 +347,20 @@
 
 
   <nav>
-    <div class="logo" style="display: flex; align-items: center;">
-        <span style="color: #000; font-size: 26px; font-weight: bold; letter-spacing: 1px; margin-left: 20px;">Recycle it!</span>
+        <div class="logo" style="display: flex; align-items: center;">
+            <span style="color: #000; font-size: 26px; font-weight: bold; letter-spacing: 1px; margin-left: 20px;">Recycle it!</span>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div> 
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="https://sweihanschool.my.canva.site/recycleit#project-overview">Home</a></li>
+            <li><a href="https://ecomate.zapier.app">Chat with AI</a></li>
+           
+    </nav>
     </div>
-    <div class="hamburger">
-        <div class="line1"></div>
-        <div class="line2"></div> 
-        <div class="line3"></div>
-    </div>
-    <ul class="nav-links">
-        <li><a href="recycleit.html">Home</a></li>
-        <li><a href="https://freeaikit.com/tools/ecosavvy-65cceec12cba390de6b8b89e">Chat with AI</a></li>
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Solutions▼</a>
-            <div class="dropdown-content">
-                <a href="Population solutions.html">Population solutions</a>
-                <a href="Anti recycling solutions.html">Anti recycling solutions</a>
-                <a href="Recycling solutions.html">Recycling solutions</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Read now▼</a>
-            <div class="dropdown-content">
-                <a href="Recycling books.html">Recycling books</a>
-                <a href="Recycling news.html">Recycling news</a>
-                <a href="Recycling future.html">Recycling future</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">About▼</a>
-            <div class="dropdown-content">
-                <a href="About us.html">About us</a>
-                <a href="Who are us.html">Who are us</a>
-                <a href="Our team.html">Our team</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Select Language▼</a>
-            <div class="dropdown-content">
-                <a href="Recycleit/Arabic.html" ><span class="flag-icon flag-icon-ae"></span> Arabic - العربية</a>
-                <a href="Recycleit.html" ><span class="flag-icon flag-icon-gb"></span> English</a>
-                <a href="Recycleit/French.html" ><span class="flag-icon flag-icon-fr"></span> French - français</a>
-                <a href="Recycleit/Spanish.html"><span class="flag-icon flag-icon-es"></span> Spanish - español</a>
-                
-            </div>
-        </li>
-        <li><a href="contact us.html">Contact Us</a></li>
-        <li><a href="login.html"><button class="login-button">Login</button></a></li>
-    </ul>
-</nav>
-</div> 
 <div class="container">
     <h1>Contact Us</h1>
     <form action="https://api.web3forms.com/submit" method="post">
@@ -434,3 +398,4 @@
       hamburger.classList.toggle("toggle");
     });
   </script>
+
