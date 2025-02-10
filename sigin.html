@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Recycle it!</title>
+    <style>
+        body {
+            background-color: #008227;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        nav {
+            height: 4.5rem;
+            width: 100vw;
+            background-color: #4a8c4a;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+        }
+
+        .logo {
+            padding: 1vh 1vw;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo span {
+            color: #000;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-left: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            width: 88vw;
+            padding: 0 0.7vw;
+            justify-content: space-evenly;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            margin: 0 0.7vw;
+            color: #2b2b2b;
+        }
+
+        .nav-links li a:hover {
+            color: #78ab78;
+        }
+
+        .signin-card {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .signin-card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: none;
+            background-color: #37474F;
+            color: #ffffff;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .signin-card button {
+            background-color: #9eff57;
+            color: #1F2A2E;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signin-card button:hover {
+            background-color: #7ecc42;
+        }
+
+        .signin-card a {
+            color: #9eff57;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .signin-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <span>Recycle it!</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="https://sweihanschool.my.canva.site/recycleit#project-overview">Home</a></li>
+        <li><a href="https://ecomate.zapier.app">Chat with AI</a></li>
+    </ul>
+</nav>
+
+<div class="signin-card">
+    <h2>Sign In</h2>
+    <form onsubmit="return signIn()">
+        <input type="email" id="emailInput" placeholder="Enter your email" required>
+        <input type="password" id="passwordInput" placeholder="Enter your password" required>
+        <button type="submit">Sign In</button>
+    </form>
+    <a href="signup.html">Don't have an account? Sign up</a>
+</div>
+
+<script>
+    function signIn() {
+        var email = document.getElementById("emailInput").value;
+        var password = document.getElementById("passwordInput").value;
+
+        // Retrieve users from local storage
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Check if user exists
+        var user = users.find(u => u.email === email && u.password === password);
+
+        if (!user) {
+            alert("Invalid email or password. Please try again.");
+            return false;
+        }
+
+        // Redirect to the welcome page
+        window.location.href = 'welcome.html?name=' + encodeURIComponent(user.name);
+        return false;
+    }
+</script>
+
+</body>
+</html>
+
